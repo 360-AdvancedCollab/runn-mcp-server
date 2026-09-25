@@ -156,7 +156,7 @@ def _person_has_skill(person: Dict[str, object], skill_id: int, min_level: Optio
     return False
 
 
-mcp = FastMCP("Runn MCP Server", json_response=True)
+mcp = FastMCP("Runn MCP Server", json_response=True, host=os.getenv("FASTMCP_HOST", "127.0.0.1"))
 
 
 @mcp.tool()
