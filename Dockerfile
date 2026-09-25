@@ -12,6 +12,9 @@ COPY requirements.txt ./
 RUN python -m pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
+RUN useradd --uid 10001 --no-create-home --shell /usr/sbin/nologin app
+USER 10001
+
 COPY mcp_runn_server.py runn_reports.py ./
 
 EXPOSE 8000
