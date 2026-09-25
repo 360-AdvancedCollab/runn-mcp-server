@@ -8,7 +8,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 COPY requirements.txt ./
 RUN python -m pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
+    && pip install --no-cache-dir -r requirements.txt \
+    apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*.
 
 COPY mcp_runn_server.py runn_reports.py ./
 
